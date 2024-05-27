@@ -4,6 +4,7 @@ body {
     padding: 0;
     background-color: #f8f8f8;
     line-height: 1.6;
+    transition: margin-left 0.5s, opacity 0.5s;
 }
 
 .sidenav {
@@ -17,6 +18,7 @@ body {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 100px;
+    /* Adjusted padding to move links down */
 }
 
 .sidenav a {
@@ -60,6 +62,7 @@ body {
     padding: 20px;
     transition: margin-left 0.5s, opacity 0.5s;
     margin-left: 20px;
+    /* Shift content slightly to the right */
 }
 
 h1 {
@@ -88,5 +91,6 @@ li:hover {
     .container {
         padding: 10px;
         margin-left: 10px;
+        /* Adjust margin for smaller screens */
     }
 }
