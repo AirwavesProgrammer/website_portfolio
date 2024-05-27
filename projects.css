@@ -2,38 +2,94 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f3f3f3; /* Hellere Hintergrundfarbe */
+    background-color: #f8f8f8;
     line-height: 1.6;
 }
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 100px;
+    /* Adjusted padding to move links down */
+}
+
+.sidenav a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    background-color: #575757;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    margin: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff; /* Weißer Hintergrund für den Container */
-    border-radius: 8px; /* Abgerundete Ecken für den Container */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten für den Container */
+    transition: margin-left 0.5s, opacity 0.5s;
+    margin-left: 20px;
+    /* Shift content slightly to the right */
 }
+
 h1 {
     text-align: center;
     color: #333;
 }
+
 ul {
     list-style-type: none;
     padding: 0;
 }
+
 li {
-    background-color: #f9f9f9; /* Hellere Hintergrundfarbe für die Listenelemente */
+    background-color: #fff;
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 li:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 @media (max-width: 600px) {
     .container {
         padding: 10px;
+        margin-left: 10px;
+        /* Adjust margin for smaller screens */
     }
 }
-

@@ -19,7 +19,7 @@
                     <li><a href="#experience">Erfahrungen</a></li>
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
-            </nav>
+            </nav> 
 
             <div class="switch-container">
             <span>Light</span>
@@ -28,7 +28,7 @@
                     <span class="slider"></span>
                 </label>
             <span>Dark</span>
-        </div>
+            </div>
         </header>
 
         <section id="about">
@@ -189,7 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Update switch label based on current theme
     if (currentTheme === 'dark-mode') {
         document.querySelector('.switch-container span:first-child').classList.remove('active');
         document.querySelector('.switch-container span:last-child').classList.add('active');

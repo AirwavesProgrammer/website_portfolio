@@ -408,10 +408,11 @@ body.dark-mode .project {
     right: 10px;
 }
 
+/* Footer */
 footer {
-    background-color: #333; /* Hintergrundfarbe des Footers */
-    color: #fff; /* Textfarbe des Footers */
-    padding: 20px 0; /* Innenabstand oben und unten */
+    background-color: #333; 
+    color: #fff; 
+    padding: 20px 0; 
     text-align: center;
 }
 
@@ -426,18 +427,24 @@ footer {
 }
 
 .navbar a {
-    color: #fff; /* Textfarbe der Links */
+    color: #fff; 
     text-decoration: none;
-    margin: 0 15px; /* Abstand zwischen den Links */
-    transition: color 0.3s; /* Übergangseffekt für die Farbe */
+    margin: 0 15px; 
+    cursor: pointer; 
 }
 
+/* Hover-Effekt */
 .navbar a:hover {
-    color: #ddd; /* Farbe der Links beim Überfahren */
+    color: #ddd; 
+}
+
+/* Klickeffekt */
+.navbar a:active {
+    transform: translateY(1px); 
 }
 
 .fa {
-    margin-right: 5px; /* Abstand zwischen dem Icon und dem Text */
+    margin-right: 5px; 
 }
 
 body.dark-mode footer {
