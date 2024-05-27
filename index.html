@@ -26,13 +26,15 @@
             <p>Hi, ich bin Sebastian, ein Informatikstudent an der Martin-Luther-Universität Halle-Wittenberg mit einer Leidenschaft für Webentwicklung. Meine Grundlagenkenntnisse in HTML, JavaScript und React setze ich gerne ein, um kreative und benutzerfreundliche Websites zu gestalten.</p>
             <p>Ich bin fasziniert von der Vielfalt der IT-Welt und beschäftige mich in meiner Freizeit intensiv mit neuen Technologien und Trends. Aktuell stehen Python, C# und TypeScript auf meiner Lernliste, um mein Skillset weiter auszubauen.</p>
             <p>Meine Begeisterung für die Informatik treibt mich an, stetig Neues zu lernen und meine Fähigkeiten zu verbessern. Ich bin ein Teamplayer und freue mich auf spannende Projekte, bei denen ich mein Wissen einbringen und erweitern kann.</p>
+            <p>Habe ich Sie von meiner Arbeit überzeugt?</p>
+            <button id="resume-button" onclick="downloadResume()">Lebenslauf herunterladen</button>
         </section>
 
         <section id="projects">
             <h2>Projekte</h2>
             <div class="project">
                 <h3>Projekt ATLAS - ein Projekt für einen privaten Discord-Server</h3>
-                <a href="https://airwavesprogrammer.github.io/website_atlas/homepage.html">Link zur Website</a>
+                <a href="https://airwavesprogrammer.github.io/website_atlas/homepage.html" class="website-link">Zur Website</a>
                 <p>Die Atlas-Website ist die zentrale Anlaufstelle für alle Informationen rund um das Projekt. Sie wurde mit modernen Webtechnologien wie HTML, CSS und JavaScript entwickelt und bietet eine intuitive und ansprechende Benutzererfahrung.</p>
                 <p>Wichtige Bereiche der Website:</p>
                 <ul>
@@ -48,6 +50,22 @@
             </div>
         </section>
 
+        <section id="experience">
+            <h2>Berufliche Erfahrung</h2>
+            <p>Als Werkstudent im Bereich Software Development bei GISA konnte ich wertvolle Erfahrungen sammeln und meine Fähigkeiten im Frontend-Development weiterentwickeln. Hier sind einige meiner Hauptaufgaben und Erfahrungen:</p>
+        <ul>
+            <li>Entwicklung von benutzerfreundlichen und responsiven Webanwendungen mit modernen Frontend-Technologien wie HTML, CSS, JavaScript, React, TailwindCSS und Redux.</li>
+            <li>Integration von Backend-Services in die Frontend-Anwendung mithilfe von RESTful APIs.</li>
+            <li>Verwendung von Bitbucket für Versionskontrolle und kollaboratives Arbeiten im Team.</li>
+            <li>Entwicklung von Backend-Anwendungen mit Spring und Spring Boot, einschließlich der Implementierung von RESTful Web Services.</li>
+            <li>Arbeiten mit PostgreSQL-Datenbanken für die Speicherung und Abfrage von Daten.</li>
+            <li>Optimierung der Benutzererfahrung durch die Implementierung von interaktiven UI-Komponenten und Animationen.</li>
+            <li>Zusammenarbeit im agilen Team, einschließlich regelmäßiger Code-Reviews und regelmäßiger Meetings (Dailys)</li>
+            <li>Problembehebung und Fehlerbehebung in bestehenden Codebasen sowie kontinuierliche Verbesserung der Codequalität.</li>
+        </ul>
+</section>
+
+
         <section id="contact">
             <h2>Kontakt</h2>
             <ul class="contact-list">
@@ -62,6 +80,16 @@
         <p>&copy; 2024 Sebastian Brendel</p>
     </footer>
 
+    <script>
+        function downloadResume() {
+            var link = document.createElement('a');
+            link.href = 'path/to/your/resume.pdf'; // Pfad zu deinem Lebenslauf
+            link.download ='Lebenslauf.pdf'; // Name der heruntergeladenen Datei
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
 </body>
 </html>
 
