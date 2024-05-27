@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio über mich</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
 
@@ -20,6 +20,15 @@
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
             </nav>
+
+            <div class="switch-container">
+            <span>Light</span>
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider"></span>
+                </label>
+            <span>Dark</span>
+        </div>
         </header>
 
         <section id="about">
@@ -27,7 +36,7 @@
             <p>Hi, ich bin Sebastian, ein Informatikstudent an der Martin-Luther-Universität Halle-Wittenberg mit einer Leidenschaft für Webentwicklung. Meine Grundlagenkenntnisse in HTML, JavaScript und React setze ich gerne ein, um kreative und benutzerfreundliche Websites zu gestalten.</p>
             <p>Ich bin fasziniert von der Vielfalt der IT-Welt und beschäftige mich in meiner Freizeit intensiv mit neuen Technologien und Trends. Aktuell stehen Python, C# und TypeScript auf meiner Lernliste, um mein Skillset weiter auszubauen.</p>
             <p>Meine Begeisterung für die Informatik treibt mich an, stetig Neues zu lernen und meine Fähigkeiten zu verbessern. Ich bin ein Teamplayer und freue mich auf spannende Projekte, bei denen ich mein Wissen einbringen und erweitern kann.</p>
-            <p>Habe ich Sie von meiner Arbeit überzeugt?</p>
+            <p>Sind Sie an meiner Arbeit interessiert?</p>
             <button id="resume-button" onclick="downloadResume()">Lebenslauf herunterladen</button>
         </section>
 
@@ -113,7 +122,12 @@
     </div>
 
 <footer>
-    <p>&copy; 2024 Sebastian Brendel</p>
+    <div class="footer-container">
+        <div class="navbar">
+            <a class="active" href="#"><i class=""></i>Projekte in Arbeit</a>
+        </div>
+        <p>&copy; 2024 Sebastian Brendel</p>
+    </div>
 </footer>
 
 <script>
@@ -153,6 +167,38 @@ function updateGallery() {
     const translateX = -currentIndex * imageWidth;
     galleryImages.style.transform = `translateX(${translateX}px)`;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleSwitch = document.getElementById('dark-mode-toggle');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+        document.body.classList.add(currentTheme);
+        if (currentTheme === 'dark-mode') {
+            toggleSwitch.checked = true;
+        }
+    }
+
+    toggleSwitch.addEventListener('change', () => {
+        if (toggleSwitch.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light-mode');
+        }
+    });
+
+    // Update switch label based on current theme
+    if (currentTheme === 'dark-mode') {
+        document.querySelector('.switch-container span:first-child').classList.remove('active');
+        document.querySelector('.switch-container span:last-child').classList.add('active');
+    } else {
+        document.querySelector('.switch-container span:first-child').classList.add('active');
+        document.querySelector('.switch-container span:last-child').classList.remove('active');
+    }
+});
+
 </script>
 
 </body>
