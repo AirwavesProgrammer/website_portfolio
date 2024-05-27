@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: #f0f0f0;
     line-height: 1.6;
     transition: margin-left 0.5s, opacity 0.5s;
 }
@@ -14,18 +14,17 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #333;
+    background-color: #292b2c;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 100px;
-    /* Adjusted padding to move links down */
 }
 
 .sidenav a {
     padding: 10px 15px;
     text-decoration: none;
     font-size: 18px;
-    color: #fff;
+    color: #d1d1d1;
     display: block;
     transition: 0.3s;
 }
@@ -40,12 +39,13 @@ body {
     right: 15px;
     font-size: 36px;
     margin-left: 50px;
+    color: #d1d1d1;
 }
 
 .openbtn {
     font-size: 20px;
     cursor: pointer;
-    background-color: #333;
+    background-color: #292b2c;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -62,7 +62,6 @@ body {
     padding: 20px;
     transition: margin-left 0.5s, opacity 0.5s;
     margin-left: 20px;
-    /* Shift content slightly to the right */
 }
 
 h1 {
@@ -76,7 +75,7 @@ ul {
 }
 
 li {
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
@@ -85,4 +84,11 @@ li {
 
 li:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+        margin-left: 10px;
+    }
 }
