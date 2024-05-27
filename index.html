@@ -61,6 +61,20 @@
                 <li>Beitritt zum Discord-Server der Greenville-Community, um Feedback auszutauschen und an Diskussionen teilzunehmen.</li>
             </ul>
             <p>Aktuell hat das Spiel Greenville über 970 Millionen Besuche und einen Discord-Server mit mehr als 226.000 Mitgliedern.</p>
+            
+            <div class="gallery-container">
+            <div class="gallery-images">
+                <img src="greenville.webp" alt="Bild 1">
+                <img src="greenville2.webp" alt="Bild 2">
+                <img src="greenville3.webp" alt="Bild 3">
+                <img src="greenville4.webp" alt="Bild 4">
+                <img src="greenville5.webp" alt="Bild 5">
+                <img src="greenville6.webp" alt="Bild 6">
+            </div>
+                <button class="gallery-prev">❮</button>
+                <button class="gallery-next">❯</button>
+            </div>
+
         </section>
 
 
@@ -68,7 +82,7 @@
             <h2>Berufliche Erfahrung</h2>
             <p>Als Werkstudent im Bereich Software Development bei GISA konnte ich wertvolle Erfahrungen sammeln und meine Fähigkeiten im Frontend-Development weiterentwickeln. Hier sind einige meiner Hauptaufgaben und Erfahrungen:</p>
             <ul>
-                <li>Entwicklung von benutzerfreundlichen und responsiven Webanwendungen mit modernen Frontend-Technologien wie HTML, CSS, JavaScript, React, TailwindCSS und Redux.</li>
+                <li>Entwicklung von benutzerfreundlichen und responsiven Webanwendungen mit modernen Frontend-Technologien wie HTML, CSS, JavaScript, React, Tailwind und Redux.</li>
                 <li>Integration von Backend-Services in die Frontend-Anwendung mithilfe von RESTful APIs.</li>
                 <li>Verwendung von Bitbucket für Versionskontrolle und kollaboratives Arbeiten im Team.</li>
                 <li>Entwicklung von Backend-Anwendungen mit Spring und Spring Boot, einschließlich der Implementierung von RESTful Web Services.</li>
@@ -77,6 +91,12 @@
                 <li>Zusammenarbeit im agilen Team, einschließlich regelmäßiger Code-Reviews und regelmäßiger Meetings (Dailys)</li>
                 <li>Problembehebung und Fehlerbehebung in bestehenden Codebasen sowie kontinuierliche Verbesserung der Codequalität.</li>
             </ul>
+            <div class="images">
+                <img src="react.png" alt="Bild 1">
+                <img src="redux.jpg" alt="Bild 2">
+                <img src="springboot.jpg" alt="Bild 3">
+                <img src="tailwind.png" alt="Bild 4">
+            </div>
         </section>
 
 
@@ -90,20 +110,49 @@
         </section>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Sebastian Brendel</p>
-    </footer>
+<footer>
+    <p>&copy; 2024 Sebastian Brendel</p>
+</footer>
 
-    <script>
-        function downloadResume() {
-            var link = document.createElement('a');
-            link.href = 'path/to/your/resume.pdf'; 
-            link.download ='Lebenslauf.pdf'; 
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-    </script>
+<script>
+
+function downloadResume() {
+    var link = document.createElement('a');
+    link.href = 'path/to/your/resume.pdf'; 
+    link.download ='Lebenslauf.pdf'; 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    }
+
+const galleryImages = document.querySelector('.gallery-images');
+const galleryPrev = document.querySelector('.gallery-prev');
+const galleryNext = document.querySelector('.gallery-next');
+let currentIndex = 0;
+
+galleryNext.addEventListener('click', () => {
+    currentIndex++;
+    if (currentIndex > galleryImages.children.length - 1) {
+        currentIndex = 0;
+    }
+    updateGallery();
+});
+
+galleryPrev.addEventListener('click', () => {
+    currentIndex--;
+    if (currentIndex < 0) {
+        currentIndex = galleryImages.children.length - 1;
+    }
+    updateGallery();
+    });
+
+function updateGallery() {
+    const imageWidth = galleryImages.children[0].clientWidth;
+    const translateX = -currentIndex * imageWidth;
+    galleryImages.style.transform = `translateX(${translateX}px)`;
+}
+</script>
+
 </body>
 </html>
 

@@ -212,6 +212,56 @@ h2 {
     text-decoration: underline;
 }
 
+.images {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.images img {
+    width: 100px; 
+    height: auto; 
+    margin: 0 10px; 
+}
+
+.gallery-container {
+    position: relative;
+    width: 80%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.gallery-images {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.gallery-images img {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.gallery-prev, .gallery-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.gallery-prev {
+    left: 10px;
+}
+
+.gallery-next {
+    right: 10px;
+}
+
 footer {
     background-color: #333;
     color: #fff;
