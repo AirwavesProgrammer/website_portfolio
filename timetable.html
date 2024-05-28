@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stundenplan</title>
+    <link rel="stylesheet" href="timetable.css">
+</head>
+<body>
+    <div class="schedule">
+        <h1>Stundenplan</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Zeit</th>
+                    <th>Montag</th>
+                    <th>Dienstag</th>
+                    <th>Mittwoch</th>
+                    <th>Donnerstag</th>
+                    <th>Freitag</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10:15 - 11:45</td>
+                    <td class="tooltip dbp">Vorlesung DBP
+                        <span class="tooltiptext">Datenbankprogrammierung: Einführung in relationale Datenbanken und SQL.<br>Raum: H101<br>Dozent: Prof. Müller</span>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td class="tooltip bv">Vorlesung BV
+                        <span class="tooltiptext">Bildverarbeitung: Techniken und Algorithmen zur Verarbeitung digitaler Bilder.<br>Raum: H102<br>Dozent: Dr. Schmidt</span>
+                    </td>
+                    <td class="tooltip bs">Übung BS
+                        <span class="tooltiptext">Betriebssysteme: Praktische Übungen zu Prozessen, Threads und Speicherverwaltung.<br>Raum: H103<br>Dozent: Dr. Meyer</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>12:15 - 13:45</td>
+                    <td class="tooltip ana">Übung Ana
+                        <span class="tooltiptext">Analysis: Übungen zu Grenzwerten, Differenzieren und Integrieren.<br>Raum: H104<br>Dozent: Prof. Fischer</span>
+                    </td>
+                    <td class="tooltip bv">Übung BV
+                        <span class="tooltiptext">Bildverarbeitung: Fortsetzung der Techniken und Algorithmen zur Bildverarbeitung.<br>Raum: H102<br>Dozent: Dr. Schmidt</span>
+                    </td>
+                    <td></td>
+                    <td class="tooltip bs">Vorlesung BS
+                        <span class="tooltiptext">Betriebssysteme: Theoretische Grundlagen und Konzepte.<br>Raum: H103<br>Dozent: Dr. Meyer</span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>14:15 - 15:45</td>
+                    <td class="tooltip ti">Vorlesung TI
+                        <span class="tooltiptext">Technische Informatik: Grundlagen der Computerhardware und -architektur.<br>Raum: H105<br>Dozent: Prof. Weber</span>
+                    </td>
+                    <td class="tooltip ana">Vorlesung Ana
+                        <span class="tooltiptext">Analysis: Vertiefung der Themen aus der Vorlesung.<br>Raum: H104<br>Dozent: Prof. Fischer</span>
+                    </td>
+                    <td></td>
+                    <td class="tooltip dbp">Übung DBP
+                        <span class="tooltiptext">Datenbankprogrammierung: Praktische Übungen zu SQL und Datenbankentwurf.<br>Raum: H101<br>Dozent: Prof. Müller</span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>16:15 - 17:45</td>
+                    <td class="tooltip ana">Vorlesung Ana
+                        <span class="tooltiptext">Analysis: Weitere Themen und Anwendungen.<br>Raum: H104<br>Dozent: Prof. Fischer</span>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="tooltip ti">TI (Vorlesung u. Übung)
+                        <span class="tooltiptext">Technische Informatik: Kombination aus theoretischer und praktischer Anwendung.<br>Raum: H105<br>Dozent: Prof. Weber</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="legend">
+            <h2>Legende</h2>
+            <ul>
+                <li><span class="legend-color dbp"></span> DBP: Datenbankprogrammierung</li>
+                <li><span class="legend-color bv"></span> BV: Bildverarbeitung</li>
+                <li><span class="legend-color bs"></span> BS: Betriebssysteme</li>
+                <li><span class="legend-color ana"></span> Ana: Analysis</li>
+                <li><span class="legend-color ti"></span> TI: Technische Informatik</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
