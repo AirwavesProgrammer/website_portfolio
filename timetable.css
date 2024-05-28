@@ -1,50 +1,113 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    /* Hintergrundfarbe des gesamten Dokuments */
     margin: 0;
-    padding: 20px;
+    padding: 0;
+}
+
+.main-content {
+    transition: margin-left 0.5s;
+    padding: 16px;
+    position: relative;
+    z-index: 1;
+    /* Stellt sicher, dass der Hauptinhalt über der Seitenleiste liegt */
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    /* Hintergrundfarbe der Seitenleiste */
+    overflow-x: hidden;
+    transition: 0.5s;
+    opacity: 0.9;
+    /* Deckkraft für den Hauptinhalt */
+    z-index: 0;
+    /* Stellt sicher, dass die Seitenleiste unter dem Hauptinhalt liegt */
+}
+
+.sidenav a {
+    padding: 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    background-color: #444;
+    /* Hintergrundfarbe beim Hover-Effekt */
+}
+
+.main-content {
+    transition: margin-left 0.5s;
+    padding: 16px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    /* Hintergrundfarbe des Buttons */
+    color: #fff;
+    border: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 999;
 }
 
 .schedule {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto;
     background-color: #fff;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #343a40;
+    margin-bottom: 20px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 th,
 td {
-    padding: 10px;
+    padding: 12px;
     text-align: center;
-    border: 1px solid #ddd;
+    border: 1px solid #dee2e6;
 }
 
 th {
-    background-color: #f8f8f8;
+    background-color: #343a40;
+    color: #fff;
 }
 
 td {
-    position: relative;
+    background-color: #fafafa;
+    /* Hintergrundfarbe der Zellen */
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9;
+tr:nth-child(even) td {
+    background-color: #f2f2f2;
+    /* Hintergrundfarbe der geraden Zeilen */
 }
 
-tr:hover {
-    background-color: #f1f1f1;
+tr:hover td {
+    background-color: #e6e6e6;
+    /* Hintergrundfarbe bei Hover */
 }
 
 .tooltip {
@@ -87,21 +150,128 @@ tr:hover {
 
 .buttons-container {
     text-align: center;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
-.buttons-container button {
-    padding: 5px 10px;
-    margin-left: 10px;
-    margin-top: 5px;
-    font-size: 0.9em;
+.info-btn,
+.download-btn,
+.export-btn {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
     color: #fff;
-    background-color: #007bff;
     border: none;
-    border-radius: 4px;
+    border-radius: 25px;
+    /* Abgerundete Ecken */
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    /* Flüssiger Übergangseffekt */
 }
 
-.buttons-container button:hover {
+.info-btn {
+    background-color: #007bff;
+    /* Farbe für Informationsbuttons */
+}
+
+.download-btn {
+    background-color: #28a745;
+    /* Farbe für Downloadbuttons */
+}
+
+.export-btn {
+    background-color: #dc3545;
+    /* Farbe für Exportbuttons */
+}
+
+.info-btn:hover {
     background-color: #0056b3;
+    /* Farbe für Hover-Effekt bei Informationsbuttons */
+    transform: translateY(-3px);
+    /* Verschiebung nach oben */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Schatten */
+}
+
+.download-btn:hover {
+    background-color: #218838;
+    /* Farbe für Hover-Effekt bei Downloadbuttons */
+    transform: translateY(-3px);
+    /* Verschiebung nach oben */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Schatten */
+}
+
+.export-btn:hover {
+    background-color: #c82333;
+    /* Farbe für Hover-Effekt bei Exportbuttons */
+    transform: translateY(-3px);
+    /* Verschiebung nach oben */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Schatten */
+}
+
+.quote-block {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #f0f0f0;
+    /* Geänderter Hintergrund des Zitatblocks */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #ffc107;
+    /* Gelbe Farbe für die linke Border */
+    border-radius: 8px;
+}
+
+blockquote {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em;
+    color: #333;
+    /* Dunkle Textfarbe */
+}
+
+blockquote p {
+    margin-bottom: 10px;
+}
+
+.notes-block {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.notes-block h2 {
+    margin-top: 0;
+    color: #343a40;
+}
+
+.notes-block textarea {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.notes-block button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #87cefa;
+    /* Pastellfarbe für den Button */
+    border: none;
+    border-radius: 25px;
+    /* Abgerundete Ecken */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.notes-block button:hover {
+    background-color: #5f9eea;
+    /* Farbe für Hover-Effekt */
 }

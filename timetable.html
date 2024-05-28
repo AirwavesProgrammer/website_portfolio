@@ -5,9 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stundenplan</title>
     <link rel="stylesheet" href="timetable.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
-    <div class="schedule">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="portfolio.html">Über mich</a>
+        <a href="timetable.html">Stundenplan</a>
+        <a href="exams.html">Prüfungen</a>
+    </div>
+
+<div class="main-content" id="main-content">
+    <div class="schedule" id="schedule">
         <h1>Stundenplan SS 2024</h1>
         <table>
             <thead>
@@ -35,7 +45,6 @@
                         <span class="tooltiptext">Übung Betriebssysteme<br>Raum: 3.02<br>Dozent: Anett Thüring</span>
                     </td>
                 </tr>
-
                 <tr>
                     <td>12:15 - 13:45</td>
                     <td class="tooltip ana">Übung Ana
@@ -52,7 +61,6 @@
                         <span class="tooltiptext">Vorlesung/Übung<br>Raum: 3.07<br>Dozent: Prof. Dr. Paul Molitor</span>
                     </td>
                 </tr>
-
                 <tr>
                     <td>14:15 - 15:45</td>
                     <td class="tooltip ti">Vorlesung TI
@@ -63,11 +71,10 @@
                     </td>
                     <td></td>
                     <td class="tooltip dbp">Übung DBP
-                        <span class="tooltiptext">Übung Datenbankprogrammierung<br>Raum: 3.ß2<br>Dozent: M.Sc. Mario Wenzel</span>
+                        <span class="tooltiptext">Übung Datenbankprogrammierung<br>Raum: 3.32<br>Dozent: M.Sc. Mario Wenzel</span>
                     </td>
                     <td></td>
                 </tr>
-
                 <tr>
                     <td>16:15 - 17:45</td>
                     <td class="tooltip ana">Vorlesung Ana
@@ -82,15 +89,128 @@
         </table>
     </div>
 
-    <div class="buttons-container">
-        <button onclick="window.open('https://example.com/dbp', '_blank')">Mehr Infos zu DBP</button>
-        <button onclick="window.open('https://example.com/bv', '_blank')">Mehr Infos zu BV</button>
-        <button onclick="window.open('https://example.com/bs', '_blank')">Mehr Infos zu BS</button>
-        <button onclick="window.open('https://example.com/ana', '_blank')">Mehr Infos zu Ana</button>
-        <button onclick="window.open('https://example.com/ti', '_blank')">Mehr Infos zu TI</button>
+    <div class="quote-block">
+        <blockquote>
+            <p>"Die einzige Grenze zu unserer Verwirklichung von morgen wird unser Zweifel von heute sein." - Franklin D. Roosevelt</p>
+            <p>"Erfolg ist nicht der Schlüssel zum Glück. Glück ist der Schlüssel zum Erfolg. Wenn du liebst, was du tust, wirst du erfolgreich sein." - Albert Schweitzer</p>
+            <p>"Der Weg zum Erfolg und der Weg zum Scheitern sind fast identisch." - Colin R. Davis</p>
+        </blockquote>
     </div>
+
+    <div class="notes-block">
+        <h2>Eigene Notizen</h2>
+        <textarea placeholder="Hier können Sie Ihre eigenen Notizen einfügen..."></textarea>
+        <button onclick="copyNotes()">Kopieren</button>
+        <div id="copyConfirmation" style="display: none;">Notizen wurden in die Zwischenablage kopiert!</div>
+    </div>
+
+    <div class="buttons-container">
+        <button class="info-btn" onclick="window.open('https://example.com/dbp', '_blank')">Mehr Infos zu DBP</button>
+        <button class="info-btn" onclick="window.open('https://example.com/bv', '_blank')">Mehr Infos zu BV</button>
+        <button class="info-btn" onclick="window.open('https://example.com/bs', '_blank')">Mehr Infos zu BS</button>
+        <button class="info-btn" onclick="window.open('https://example.com/ana', '_blank')">Mehr Infos zu Ana</button>
+        <button class="info-btn" onclick="window.open('https://example.com/ti', '_blank')">Mehr Infos zu TI</button>
+        <button class="download-btn" onclick="downloadPDF()">Stundenplan als PDF herunterladen</button>
+        <button class="export-btn" onclick="exportToICS()">Stundenplan in Kalender exportieren</button>
+    </div>
+    <button class="openbtn" onclick="openNav()">Open</button>
+</div>
+
+    <script>
+        async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('p', 'mm', 'a4');
+            const element = document.getElementById('schedule');
+            const canvas = await html2canvas(element, { scale: 2 });
+            const imgData = canvas.toDataURL('image/png');
+
+            const imgWidth = 190;
+            const pageHeight = 295;
+            const imgHeight = canvas.height * imgWidth / canvas.width;
+            let heightLeft = imgHeight;
+            let position = 10;
+
+            doc.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+
+            while (heightLeft >= 0) {
+                position = heightLeft - imgHeight;
+                doc.addPage();
+                doc.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+            }
+
+            doc.save('Stundenplan.pdf');
+        }
+
+        function exportToICS() {
+            const events = [
+                { title: 'Vorlesung DBP', location: 'Raum 3.04', start: '2024-06-10T10:15:00', end: '2024-06-10T11:45:00' },
+                { title: 'Vorlesung BV', location: 'Raum 3.07', start: '2024-06-12T10:15:00', end: '2024-06-12T11:45:00' },
+                { title: 'Übung BS', location: 'Raum 3.02', start: '2024-06-13T10:15:00', end: '2024-06-13T11:45:00' }
+                // Weitere Events hier hinzufügen...
+            ];
+
+            let icsContent = 'BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Stundenplan//EN\n';
+
+            events.forEach(event => {
+                icsContent += `BEGIN:VEVENT\nSUMMARY:${event.title}\nLOCATION:${event.location}\nDTSTART:${formatDateToICS(event.start)}\nDTEND:${formatDateToICS(event.end)}\nEND:VEVENT\n`;
+            });
+
+            icsContent += 'END:VCALENDAR';
+
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Stundenplan.ics';
+            link.click();
+        }
+
+        function formatDateToICS(dateStr) {
+            const date = new Date(dateStr);
+            const pad = (num) => num.toString().padStart(2, '0');
+            const year = date.getUTCFullYear();
+            const month = pad(date.getUTCMonth() + 1);
+            const day = pad(date.getUTCDate());
+            const hours = pad(date.getUTCHours());
+            const minutes = pad(date.getUTCMinutes());
+            const seconds = pad(date.getUTCSeconds());
+            return `${year}${month}${day}T${hours}${minutes}${seconds}Z`;
+        }
+
+        function copyNotes() {
+            var notesTextarea = document.getElementById("notesTextarea");
+            notesTextarea.select();
+            try {
+                var successful = document.execCommand('copy');
+                var copyConfirmation = document.getElementById("copyConfirmation");
+                if (successful) {
+                    copyConfirmation.textContent = "Notizen wurden in die Zwischenablage kopiert!";
+                    copyConfirmation.style.display = "block";
+                    setTimeout(function(){
+                        copyConfirmation.style.display = "none";
+                    }, 2000); // Hide copy confirmation after 2 seconds
+                } else {
+                    copyConfirmation.textContent = "Kopieren fehlgeschlagen. Bitte kopiere manuell.";
+                    copyConfirmation.style.display = "block";
+                    }
+            } catch (err) {
+                copyConfirmation.textContent = "Kopieren fehlgeschlagen. Bitte kopiere manuell.";
+                copyConfirmation.style.display = "block";
+            }
+        }
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main-content").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main-content").style.marginLeft= "0";
+        }
+    </script>
 </body>
 </html>
-
 
 
