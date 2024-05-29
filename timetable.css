@@ -1,7 +1,6 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f5f5f5;
-    /* Hintergrundfarbe des gesamten Dokuments */
     margin: 0;
     padding: 0;
 }
@@ -11,7 +10,6 @@ body {
     padding: 16px;
     position: relative;
     z-index: 1;
-    /* Stellt sicher, dass der Hauptinhalt über der Seitenleiste liegt */
 }
 
 .sidenav {

@@ -11,9 +11,9 @@
 <body>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="https://airwavesprogrammer.github.io/website_portfolio/portfolio.html">Über mich</a>
-        <a href="https://airwavesprogrammer.github.io/website_portfolio/timetable.html">Stundenplan</a>
-        <a href="https://airwavesprogrammer.github.io/website_portfolio/exans.html">Prüfungen</a>
+        <a href="portfolio.html">Über mich</a>
+        <a href="timetable.html">Stundenplan</a>
+        <a href="exans.html">Prüfungen</a>
     </div>
 
 <div class="main-content" id="main-content">
@@ -99,10 +99,11 @@
 
     <div class="notes-block">
         <h2>Eigene Notizen</h2>
-        <textarea placeholder="Hier können Sie Ihre eigenen Notizen einfügen..."></textarea>
+        <textarea id="notesTextarea" name="notes" placeholder="Hier können Sie Ihre eigenen Notizen einfügen..."></textarea>
         <button onclick="copyNotes()">Kopieren</button>
         <div id="copyConfirmation" style="display: none;">Notizen wurden in die Zwischenablage kopiert!</div>
     </div>
+
 
     <div class="buttons-container">
         <button class="info-btn" onclick="window.open('https://example.com/dbp', '_blank')">Mehr Infos zu DBP</button>
