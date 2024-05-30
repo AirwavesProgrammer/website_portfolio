@@ -51,9 +51,9 @@ body {
     font-size: 20px;
     cursor: pointer;
     background-color: #111;
-    /* Hintergrundfarbe des Buttons */
     color: #fff;
     border: none;
+    border-radius: 12px;
     position: fixed;
     top: 10px;
     left: 10px;
